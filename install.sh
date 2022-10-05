@@ -22,7 +22,7 @@ else
 
     # a handy alias I use for quick compilation
     if [[ $consent == 'y' ]]; then
-        echo "alias compile_f90=\"cd build && cmake .. && make && find . -maxdepth 1 -type f -executable | xargs cp -t ../ && cd .. && find . -maxdepth 1 -type f -executable -exec {}\;\"" >> ~/.bashrc
+        echo "alias compile_f90=\"cd build && cmake -DBUILD_WITH_DOCS=ON .. && make && find . -maxdepth 1 -type f -executable | xargs cp -t ../ && cd .. && find . -maxdepth 1 -type f -executable -exec {}\;\"" >> ~/.bashrc
     fi
     bash
 fi
