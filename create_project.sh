@@ -37,7 +37,7 @@ mkdir $pr_dir"build/"
 mkdir $pr_dir"docs/"
 cp CMakeLists.txt $pr_dir
 cp Doxyfile.in $pr_dir"docs/"
-cp mainpage.dox $pr_dir"docs/"
+cp mainpage.dox $pr_dir
 cp main.f90 $pr_dir$name".f90"
 
 # Add project name in appropriate places
