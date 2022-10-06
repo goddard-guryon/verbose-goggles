@@ -1,0 +1,12 @@
+# this will be edited automatically
+PROJECT_NAME = test
+INPUT = /home/goddard/git_repos/verbose-goggles/test
+OUTPUT_DIRECTORY = /home/goddard/git_repos/verbose-goggles/test/build/doc_doxygen/
+OPTIMIZE_FOR_FORTRAN = YES
+EXTENSION_MAPPING = f90=FortranFree
+
+# custom theme by Doxygen Awesome, check github.com/jothepro/doxygen-awesome-css
+HTML_EXTRA_STYLESHEET = ../docs/scripts/theme.css
+HTML_HEADER = ../docs/scripts/header.html
+GENERATE_TREEVIEW = YES
+FULL_SIDEBAR = NO

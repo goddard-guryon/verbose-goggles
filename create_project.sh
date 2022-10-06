@@ -17,7 +17,7 @@ if [[ $pr_new_dir != '' ]]; then
     pr_dir=$pr_new_dir
 fi
 
-# create directories
+# never hurts to check, eh
 if ! command -v cmake &>/dev/null; then
     echo "Failed to find cmake, make sure to install it before compiling the files"
 fi
@@ -31,14 +31,22 @@ if [[ -d $pr_dir ]]; then
     echo "Project directory already exists, exiting"
     exit 1
 fi
+
+# create directories
 echo "Initializing project"
 mkdir $pr_dir
 mkdir $pr_dir"build/"
 mkdir $pr_dir"docs/"
-cp CMakeLists.txt $pr_dir
-cp Doxyfile.in $pr_dir"docs/"
-cp mainpage.dox $pr_dir
-cp main.f90 $pr_dir$name".f90"
+mkdir $pr_dir"docs/scripts/"
+
+# put files in appropriate locations
+cp files/CMakeLists.txt $pr_dir
+cp files/Doxyfile.in $pr_dir"docs/"
+cp files/theme.css $pr_dir"docs/scripts/"
+cp files/header.html $pr_dir"docs/scripts/"
+cp files/dark_mode.js $pr_dir"docs/scripts/"
+cp files/mainpage.dox $pr_dir
+cp files/main.f90 $pr_dir$name".f90"
 
 # Add project name in appropriate places
 sed -i -e "s/template_filename/$name/g" $pr_dir"CMakeLists.txt"

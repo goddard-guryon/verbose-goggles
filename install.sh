@@ -22,7 +22,10 @@ else
 
     # a handy alias I use for quick compilation
     if [[ $consent == 'y' ]]; then
-        echo "alias compile_f90=\"cd build && cmake -DBUILD_WITH_DOCS=ON .. && make && find . -maxdepth 1 -type f -executable | xargs cp -t ../ && cd .. && find . -maxdepth 1 -type f -executable -exec {}\;\"" >> ~/.bashrc
+
+        # had to add some extra steps since doxygen wouldn't put a required
+        # javascript file in its correct place by itself
+        echo "alias compile_f90=\"cd build && cmake -DBUILD_WITH_DOCS=ON .. && make && find . -maxdepth 1 -type f -executable | xargs cp -t ../ && cd .. && cat docs/Doxyfile.in | grep OUTPUT | awk '{split(\$3, a, \"@\"); print \"cp docs/scripts/dark_mode.js build\"a[3]\"html/\"}' | bash && find . -maxdepth 1 -type f -executable -exec {} \;\"" >> ~/.bashrc
     fi
     bash
 fi

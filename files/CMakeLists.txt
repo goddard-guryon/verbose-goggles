@@ -28,4 +28,4 @@ else (DOXYGEN_FOUND)
     message("Failed to find Doxygen, skipping documentation build")
 endif (DOXYGEN_FOUND)
 
-add_executable(template_filename.f90 template_filename)
+add_executable(template_filename template_filename.f90)
